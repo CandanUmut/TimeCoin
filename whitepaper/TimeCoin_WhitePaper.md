@@ -1,6 +1,7 @@
 TimeCoin
 
 Abstract
+
 TimeCoin is a revolutionary decentralized platform and cryptocurrency that addresses the fundamental inequities of traditional social and financial ecosystems. By valuing time and engagement, TimeCoin empowers individuals to benefit directly from their contributions in a transparent and decentralized environment. This platform transforms passive online interaction into active economic participation, solving critical problems like data exploitation, economic inequality, and lack of community-driven incentives.
 
 Introduction
