@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialCoin - Crypto Social Platform</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>🌟 SocialCoin 🌟</h1>
+        <p>Your decentralized platform for engagement and growth.</p>
+    </header>
+
+    <main class="container">
+        <!-- Landing Section -->
+        <div id="landing-section">
+            <h2>Welcome to SocialCoin</h2>
+            <p>Join our decentralized platform by signing up or logging in.</p>
+            <button class="btn btn-primary" onclick="showSignUp()">Sign Up</button>
+            <button class="btn btn-secondary" onclick="showLogin()">Login</button>
+        </div>
+
+        <!-- Sign-Up Section -->
+        <div id="sign-up-section" style="display: none;">
+            <h2>Sign Up</h2>
+            <p>Create a new wallet to start using SocialCoin. Save your private key securely!</p>
+            <button class="btn btn-primary" onclick="createWallet()">Generate Wallet</button>
+            <div id="signup-info" class="output"></div>
+            <button class="btn btn-secondary" onclick="backToLanding()">Back to Landing</button>
+        </div>
+
+        <!-- Login Section -->
+        <div id="login-section" style="display: none;">
+            <h2>Login</h2>
+            <p>Enter your public and private keys to access your wallet securely.</p>
+            <form id="login-form" onsubmit="login(event)">
+                <input type="text" id="login-public-key" placeholder="Public Key" required>
+                <input type="password" id="login-private-key" placeholder="Private Key" required>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <p id="login-message" class="output"></p>
+            <button class="btn btn-secondary" onclick="backToLanding()">Back to Landing</button>
+        </div>
+
+        <!-- Navigation Tabs (Hidden until login) -->
+        <nav id="tabs" class="tabs" style="display: none;">
+            <button class="tab-button active" onclick="openTab(event, 'wallet-tab')">Wallet</button>
+            <button class="tab-button" onclick="openTab(event, 'send-tab')">Send Tokens</button>
+            <button class="tab-button" onclick="openTab(event, 'view-tab')">View Wallet</button>
+            <button class="tab-button" onclick="openTab(event, 'earn-tab')">Earn Tokens</button>
+            <button class="tab-button" onclick="openTab(event, 'marketplace-tab')">Marketplace</button>
+        </nav>
+
+        <!-- Tab Content -->
+        <div id="wallet-tab" class="tab-content" style="display: none;">
+            <h2>Wallet</h2>
+            <p id="wallet-info" class="output"></p>
+        </div>
+
+        <div id="send-tab" class="tab-content" style="display: none;">
+            <h2>Send Tokens</h2>
+            <p>Transfer tokens securely to another wallet.</p>
+            <input type="text" id="sender-key" placeholder="Your Public Key" readonly>
+            <input type="text" id="receiver-key" placeholder="Receiver Public Key">
+            <input type="number" id="amount" placeholder="Amount">
+            <button class="btn btn-primary" onclick="sendTokens()">Send</button>
+            <p id="transaction-result" class="output"></p>
+        </div>
+
+        <div id="view-tab" class="tab-content" style="display: none;">
+            <h2>View Wallet</h2>
+            <p>Check your balance and recent transactions.</p>
+            <p id="wallet-balance"></p>
+            <h4>Transaction History</h4>
+            <ul id="transaction-history"></ul>
+        </div>
+
+        <div id="earn-tab" class="tab-content" style="display: none;">
+            <h2>Earn Tokens</h2>
+            <p>Perform actions to earn tokens and grow your balance.</p>
+            <div class="actions">
+                <button class="btn btn-secondary" onclick="performAction('create_post')">Create Post</button>
+                <button class="btn btn-secondary" onclick="performAction('comment')">Comment</button>
+                <button class="btn btn-secondary" onclick="performAction('like')">Like Content</button>
+                <button class="btn btn-secondary" onclick="performAction('daily_login')">Daily Login</button>
+            </div>
+            <p id="earn-result" class="output"></p>
+        </div>
+
+        <div id="marketplace-tab" class="tab-content" style="display: none;">
+            <h2>Marketplace</h2>
+            <p>Spend your tokens on items and services available in the marketplace.</p>
+            <ul class="marketplace-items">
+                <li>
+                    <span>Item 1 - 10 Tokens</span>
+                    <button class="btn btn-primary" onclick="buyItem('Item 1', 10)">Buy</button>
+                </li>
+                <li>
+                    <span>Item 2 - 20 Tokens</span>
+                    <button class="btn btn-primary" onclick="buyItem('Item 2', 20)">Buy</button>
+                </li>
+            </ul>
+            <p id="marketplace-result" class="output"></p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>SocialCoin © 2024 - Building a brighter, decentralized future.</p>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
